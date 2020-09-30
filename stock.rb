@@ -16,6 +16,7 @@
   def stock_picker(prices)
     #Store everything in the array 'prices'
     max_profit_per_day = []
+    profit = 0
     
 
     # for each number in Prices, and calculate the max possible
@@ -40,21 +41,20 @@
         # Sort the possible profits for the day and push the highest one to the
         # max_profit_per_day array.
         max_profit_per_day[buy_day] = possible_profit.sort.pop
+
+
     
       end
     
     # Get rid of the nil value, and sort the array, and store the most profitable
     # day in an array.
-    when_to_buy_and_sell = max_profit_per_day.compact.sort.pop
+    p when_to_buy_and_sell = max_profit_per_day.compact.sort.pop
     
-    # shift the profit out of the array
-    when_to_buy_and_sell.shift
+    profit = when_to_buy_and_sell.shift
     
     # return the day to buy and sell
-    when_to_buy_and_sell
-
-    p "You should have bought on day #{when_to_buy_and_sell[0]} and sold on day #{when_to_buy_and_sell[1]} for a profit of: £#{max_profit_per_day.compact.sort.pop}"
-    
+    p ("You should have bought on day #{when_to_buy_and_sell[0]} and sold on day #{when_to_buy_and_sell[1]} for £#{profit} profit! :]")
+ 
 
   end  
   
@@ -62,5 +62,5 @@
 
 
 
-  p stock_picker([17,3,6,9,15,8,6,1,10])
+  stock_picker([17,3,6,9,15,8,6,1,10])
     #[1,4]  # for a profit of $15 - $3 == $12
